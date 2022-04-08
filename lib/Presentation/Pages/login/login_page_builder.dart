@@ -1,0 +1,15 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meme_creator/Injectable/injectable.dart';
+import 'package:meme_creator/Presentation/Pages/login/bloc/login_bloc.dart';
+import 'package:meme_creator/Presentation/Pages/login/login_page.dart';
+
+class LoginPageBuilder extends StatelessWidget {
+  const LoginPageBuilder({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) => BlocProvider<LoginBloc>(
+        create: (context) => getIt<LoginBloc>(),
+        child: const LoginPage(),
+      );
+}
