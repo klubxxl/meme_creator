@@ -3,8 +3,8 @@ import 'package:meme_creator/Presentation/Style/app_typography.dart';
 import 'package:meme_creator/Presentation/Style/colors.dart';
 import 'package:meme_creator/Presentation/Style/dimens.dart';
 
-class TextFormRegistration extends StatefulWidget {
-  const TextFormRegistration({
+class TextFormRegistration extends StatelessWidget {
+  TextFormRegistration({
     required this.title,
     required this.formText,
     this.onChanged,
@@ -20,19 +20,7 @@ class TextFormRegistration extends StatefulWidget {
   final bool showPassword = false;
   final ValueChanged<String>? onChanged;
 
-  @override
-  State<TextFormRegistration> createState() => _TextFormRegistrationState();
-}
-
-class _TextFormRegistrationState extends State<TextFormRegistration> {
-  late bool _isObscured;
-
-  @override
-  void initState() {
-    super.initState();
-    _isObscured =
-        (widget.imageOn != null && widget.imageOff != null) ? true : false;
-  }
+  final ValueNotifier<bool> _isObscured = ValueNotifier(false);
 
   @override
   Widget build(BuildContext context) {
@@ -40,40 +28,44 @@ class _TextFormRegistrationState extends State<TextFormRegistration> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          widget.title,
+          title,
           style: Topography.caption.copyWith(fontSize: 16),
         ),
         const SizedBox(height: Dimens.xs),
         Center(
-          child: TextField(
-            onChanged: widget.onChanged,
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.all(Dimens.m),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                    color: isValid() ? MemeColors.grey : MemeColors.error),
-                borderRadius: BorderRadius.circular(Dimens.m),
+          child: ValueListenableBuilder(
+            valueListenable: _isObscured,
+            builder: (ctx, val, _) => TextField(
+              onChanged: onChanged,
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.all(Dimens.m),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: isValid() ? MemeColors.grey : MemeColors.error),
+                  borderRadius: BorderRadius.circular(Dimens.m),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: isValid() ? MemeColors.grey : MemeColors.error),
+                  borderRadius: BorderRadius.circular(Dimens.m),
+                ),
+                hintText: formText,
+                hintStyle: Topography.body1.copyWith(
+                    color: MemeColors.textDisabled,
+                    fontWeight: FontWeight.w400),
+                suffixIcon: (imageOn != null && imageOff != null)
+                    ? GestureDetector(
+                        onTap: _changePasswordVisibility,
+                        child: _isObscured.value ? imageOff : imageOn)
+                    : null,
               ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                    color: isValid() ? MemeColors.grey : MemeColors.error),
-                borderRadius: BorderRadius.circular(Dimens.m),
-              ),
-              hintText: widget.formText,
-              hintStyle: Topography.body1.copyWith(
-                  color: MemeColors.textDisabled, fontWeight: FontWeight.w400),
-              suffixIcon: (widget.imageOn != null && widget.imageOff != null)
-                  ? GestureDetector(
-                      onTap: _changePasswordVisibility,
-                      child: _isObscured ? widget.imageOff : widget.imageOn)
-                  : null,
+              obscureText: _isObscured.value,
             ),
-            obscureText: _isObscured,
           ),
         ),
-        if (widget.errorMessage != null)
+        if (errorMessage != null)
           Text(
-            widget.errorMessage ?? ' ',
+            errorMessage ?? ' ',
             style: Topography.caption,
           ),
       ],
@@ -81,15 +73,11 @@ class _TextFormRegistrationState extends State<TextFormRegistration> {
   }
 
   void _changePasswordVisibility() {
-    setState(() {
-      _isObscured = !_isObscured;
-    });
+    _isObscured.value = !_isObscured.value;
   }
 
   bool isValid() {
-    if (widget.errorMessage == null ||
-        widget.errorMessage == ' ' ||
-        widget.errorMessage == '') {
+    if (errorMessage == null || errorMessage == ' ' || errorMessage == '') {
       return true;
     } else {
       return false;

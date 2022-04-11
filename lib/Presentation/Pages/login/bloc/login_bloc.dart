@@ -98,7 +98,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       final response = await _signInUsecase(_email, _password);
 
-      print(response.token);
+      print(response.userId);
 
       emit(const LoginSuccessState());
     } catch (error) {
