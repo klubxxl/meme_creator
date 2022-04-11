@@ -17,6 +17,6 @@ class RegisterApiDataSource {
     );
 
     final json = jsonDecode(result.body);
-    return AuthDto(json['token']);
+    return AuthDto(json['idToken'], json['localId']);
   }
 }

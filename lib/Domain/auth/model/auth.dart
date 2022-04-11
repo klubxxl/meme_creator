@@ -1,5 +1,6 @@
 class Auth {
-  Auth(this.token);
+  Auth(this.token, this.userId);
 
   final String token;
+  final String userId;
 }

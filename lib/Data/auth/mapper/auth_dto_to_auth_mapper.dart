@@ -4,5 +4,5 @@ import 'package:meme_creator/Domain/auth/model/auth.dart';
 
 @injectable
 class AuthDtoToAuthMapper {
-  Auth call(AuthDto dto) => Auth(dto.token);
+  Auth call(AuthDto dto) => Auth(dto.token, dto.userId);
 }
