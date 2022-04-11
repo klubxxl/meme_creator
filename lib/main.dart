@@ -14,7 +14,7 @@ class MemeCreatorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Daniel Konsewicz',
+        title: 'meme creator',
         theme: ThemeData(primarySwatch: Colors.blue),
         home: const NavigatorPage());
   }
