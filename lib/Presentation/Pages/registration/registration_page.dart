@@ -83,10 +83,12 @@ class RegistrationPage extends StatelessWidget {
                       ),
                       const SizedBox(height: Dimens.m),
                       ScreenFooter(
+                        text: 'Already have an account? ',
+                        buttonText: "Log in",
                         onTapButton: () {
                           context
                               .read<MyNavigatorBloc>()
-                              .add(MyRegistrationButtonEvent());
+                              .add(const MyRegistrationButtonEvent());
                         },
                       ),
                     ],

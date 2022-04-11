@@ -99,11 +99,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
 
       print(response.token);
 
-      // if (response.statusCode == 200) {
       emit(const RegistrationSuccessState());
-      // } else {
-      //   emit(const RegistrationErrorState('Something wrong with form!'));
-      // }
     } catch (error) {
       emit(const RegistrationErrorState('Registration failed!'));
     }
