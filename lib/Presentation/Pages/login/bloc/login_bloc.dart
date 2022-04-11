@@ -100,11 +100,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       print(response.token);
 
-      // if (response.statusCode == 200) {
       emit(const LoginSuccessState());
-      // } else {
-      //   emit(const RegistrationErrorState('Something wrong with form!'));
-      // }
     } catch (error) {
       emit(const LoginErrorState('Registration failed!'));
     }
