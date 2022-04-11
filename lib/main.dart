@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meme_creator/Presentation/Pages/screenNavigator/navigator_page.dart';
+import 'package:meme_creator/Presentation/Pages/screen_navigator/navigator_page.dart';
 
 import 'Injectable/injectable.dart';
 

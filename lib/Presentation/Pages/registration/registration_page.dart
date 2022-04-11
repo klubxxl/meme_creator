@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:meme_creator/Presentation/Pages/registration/bloc/registration_bloc.dart';
-import 'package:meme_creator/Presentation/Pages/screenNavigator/bloc/my_navigator_bloc.dart';
+import 'package:meme_creator/Presentation/Pages/screen_navigator/bloc/my_navigator_bloc.dart';
 import 'package:meme_creator/Presentation/Style/dimens.dart';
 import 'package:meme_creator/Presentation/Style/images.dart';
 import 'package:meme_creator/Presentation/Widgets/meme_button.dart';
