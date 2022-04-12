@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meme_creator/Injectable/injectable.dart';
-import 'package:meme_creator/Presentation/Pages/login/bloc/login_bloc.dart';
-import 'package:meme_creator/Presentation/Pages/login/login_page.dart';
+import 'package:meme_creator/presentation/pages/login/bloc/login_bloc.dart';
+import 'package:meme_creator/presentation/pages/login/login_page.dart';
 
 class LoginPageBuilder extends StatelessWidget {
   const LoginPageBuilder({Key? key}) : super(key: key);

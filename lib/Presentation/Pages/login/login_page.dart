@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meme_creator/Presentation/Pages/login/bloc/login_bloc.dart';
-import 'package:meme_creator/Presentation/Pages/screen_navigator/bloc/my_navigator_bloc.dart';
 import 'package:meme_creator/Presentation/Style/dimens.dart';
 import 'package:meme_creator/Presentation/Style/images.dart';
 import 'package:meme_creator/Presentation/Widgets/meme_button.dart';
 import 'package:meme_creator/Presentation/Widgets/screen_footer_with_button.dart';
 import 'package:meme_creator/Presentation/Widgets/screen_headline.dart';
 import 'package:meme_creator/Presentation/Widgets/registration_text_field.dart';
+import 'package:meme_creator/presentation/pages/screen_navigator/bloc/my_navigator_bloc.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -29,16 +29,22 @@ class LoginPage extends StatelessWidget {
                     current is LoginSuccessState,
                 listener: (context, state) {
                   if (state is LoginErrorState) {
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
                     ScaffoldMessenger.of(context)
                         .showSnackBar(SnackBar(content: Text(state.errorText)));
                   }
                   if (state is LoginLoadingState) {
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Submitting...')));
                   }
                   if (state is LoginSuccessState) {
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Loggining succes!')));
+                    context
+                        .read<MyNavigatorBloc>()
+                        .add(const MyHomePageOpenningEvent());
                   }
                 },
                 builder: (context, state) {

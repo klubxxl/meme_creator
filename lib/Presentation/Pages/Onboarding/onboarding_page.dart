@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meme_creator/Presentation/Pages/screen_navigator/bloc/my_navigator_bloc.dart';
-import 'package:meme_creator/Presentation/Style/app_typography.dart';
-import 'package:meme_creator/Presentation/Style/dimens.dart';
-import 'package:meme_creator/Presentation/Style/images.dart';
-import 'package:meme_creator/Presentation/Widgets/meme_button.dart';
+import 'package:meme_creator/presentation/pages/screen_navigator/bloc/my_navigator_bloc.dart';
+import 'package:meme_creator/presentation/style/app_typography.dart';
+import 'package:meme_creator/presentation/style/dimens.dart';
+import 'package:meme_creator/presentation/style/images.dart';
+import 'package:meme_creator/presentation/widgets/meme_button.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({Key? key}) : super(key: key);

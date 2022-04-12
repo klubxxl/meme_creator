@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meme_creator/Presentation/Pages/Onboarding/onboarding_page.dart';
-import 'package:meme_creator/Presentation/Pages/login/login_page_builder.dart';
-import 'package:meme_creator/Presentation/Pages/registration/registration_page_builder.dart';
-import 'package:meme_creator/Presentation/Pages/screen_navigator/bloc/my_navigator_bloc.dart';
+import 'package:meme_creator/Presentation/pages/Onboarding/onboarding_page.dart';
+import 'package:meme_creator/Presentation/pages/login/login_page_builder.dart';
+import 'package:meme_creator/Presentation/pages/registration/registration_page_builder.dart';
+import 'package:meme_creator/presentation/pages/home_page/home_page.dart';
+import 'package:meme_creator/presentation/pages/screen_navigator/bloc/my_navigator_bloc.dart';
 
 class NavigatorPage extends StatelessWidget {
   const NavigatorPage({Key? key}) : super(key: key);
@@ -14,14 +15,14 @@ class NavigatorPage extends StatelessWidget {
       child: BlocBuilder<MyNavigatorBloc, MyNavigatorState>(
         builder: (BuildContext context, state) {
           late Widget page;
-          bool started = false;
           if (state is RegistrationPageState) {
             page = const RegistrationPageBuilder();
           } else if (state is LoginPageState) {
             page = const LoginPageBuilder();
+          } else if (state is HomePageState) {
+            page = const HomePageScreen();
           } else {
             page = const OnboardingScreen();
-            started = true;
           }
           return AnimatedSwitcher(
             duration: const Duration(milliseconds: 240),

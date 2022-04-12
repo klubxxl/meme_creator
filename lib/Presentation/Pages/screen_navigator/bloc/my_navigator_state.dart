@@ -23,3 +23,8 @@ class OnboardingPageState extends MyNavigatorState {
   @override
   List<Object> get props => [];
 }
+
+class HomePageState extends MyNavigatorState {
+  @override
+  List<Object> get props => [];
+}

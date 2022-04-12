@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
-import 'package:meme_creator/Data/auth/data_sources/auth_login_api_data_source.dart';
-import 'package:meme_creator/Domain/usecase/auth/sign_in_usecase.dart';
+import 'package:meme_creator/data/auth/data_sources/auth_login_api_data_source.dart';
+import 'package:meme_creator/domain/usecase/auth/sign_in_usecase.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';

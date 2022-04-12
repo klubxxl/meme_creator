@@ -27,3 +27,10 @@ class MyOnboardingEvent extends MyNavigatorEvent {
   @override
   List<Object> get props => [];
 }
+
+class MyHomePageOpenningEvent extends MyNavigatorEvent {
+  const MyHomePageOpenningEvent();
+
+  @override
+  List<Object> get props => [];
+}

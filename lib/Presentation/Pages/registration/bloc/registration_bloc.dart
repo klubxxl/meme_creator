@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
-import 'package:meme_creator/Domain/usecase/auth/sign_up_usecase.dart';
+import 'package:meme_creator/domain/usecase/auth/sign_up_usecase.dart';
 
 part 'registration_event.dart';
 part 'registration_state.dart';
@@ -82,7 +82,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     required String passwordErrorText,
   }) {
     if (emailErrorText.isEmpty && passwordErrorText.isEmpty) {
-      emit(RegistrationFormValidState());
+      emit(const RegistrationFormValidState());
     } else {
       emit(RegistrationFormInvalidState(
         emailErrorText: emailErrorText,
