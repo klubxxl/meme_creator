@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meme_creator/Presentation/Pages/home/home_page.dart';
+import 'package:meme_creator/Presentation/Pages/home/home_page_builder.dart';
 import 'package:meme_creator/Presentation/Pages/onboarding/onboarding_page.dart';
 import 'package:meme_creator/Presentation/Pages/login/login_page_builder.dart';
 import 'package:meme_creator/Presentation/Pages/registration/registration_page_builder.dart';
@@ -20,7 +20,7 @@ class NavigatorPage extends StatelessWidget {
           } else if (state is LoginPageState) {
             page = const LoginPageBuilder();
           } else if (state is HomePageState) {
-            page = HomePage(userId: state.userId);
+            page = HomePageBuilder(userId: state.userId);
           } else {
             page = const OnboardingScreen();
           }
