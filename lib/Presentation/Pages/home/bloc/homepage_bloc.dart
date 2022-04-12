@@ -7,7 +7,6 @@ part 'homepage_state.dart';
 class HomepageBloc extends Bloc<HomepageEvent, HomepageState> {
   HomepageBloc() : super(HomepageFirst()) {
     on<ChangeIntoFirstScreenEvent>((event, emit) {
-      print('hi');
       emit(HomepageFirst());
     });
     on<ChangeIntoSeccondScreenEvent>((event, emit) {
