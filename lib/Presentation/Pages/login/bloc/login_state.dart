@@ -32,7 +32,9 @@ class LoginLoadingState extends LoginState {
 }
 
 class LoginSuccessState extends LoginState {
-  const LoginSuccessState();
+  const LoginSuccessState(this.userId);
+
+  final String userId;
 
   @override
   List<Object?> get props => [];

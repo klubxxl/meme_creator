@@ -16,7 +16,7 @@ class MyNavigatorBloc extends Bloc<MyNavigatorEvent, MyNavigatorState> {
       emit(RegistrationPageState());
     });
     on<MyOppeningHomePageEvent>((event, emit) {
-      emit(HomePageState());
+      emit(HomePageState(event.userId));
     });
   }
 }

@@ -44,7 +44,7 @@ class LoginPage extends StatelessWidget {
                         const SnackBar(content: Text('Loggining succes!')));
                     context
                         .read<MyNavigatorBloc>()
-                        .add(const MyOppeningHomePageEvent());
+                        .add(MyOppeningHomePageEvent(state.userId));
                   }
                 },
                 builder: (context, state) {

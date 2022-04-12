@@ -20,7 +20,7 @@ class NavigatorPage extends StatelessWidget {
           } else if (state is LoginPageState) {
             page = const LoginPageBuilder();
           } else if (state is HomePageState) {
-            page = const HomePage();
+            page = HomePage(userId: state.userId);
           } else {
             page = const OnboardingScreen();
           }

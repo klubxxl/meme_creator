@@ -29,8 +29,10 @@ class MyOnboardingEvent extends MyNavigatorEvent {
 }
 
 class MyOppeningHomePageEvent extends MyNavigatorEvent {
-  const MyOppeningHomePageEvent();
+  const MyOppeningHomePageEvent(this.userId);
+
+  final String userId;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [userId];
 }

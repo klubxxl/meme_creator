@@ -82,7 +82,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
     required String passwordErrorText,
   }) {
     if (emailErrorText.isEmpty && passwordErrorText.isEmpty) {
-      emit(RegistrationFormValidState());
+      emit(const RegistrationFormValidState());
     } else {
       emit(RegistrationFormInvalidState(
         emailErrorText: emailErrorText,
@@ -97,9 +97,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
 
       final response = await _signUpUsecase(_email, _password);
 
-      print(response.token);
-
-      emit(const RegistrationSuccessState());
+      emit(RegistrationSuccessState(response.userId));
     } catch (error) {
       emit(const RegistrationErrorState('Registration failed!'));
     }

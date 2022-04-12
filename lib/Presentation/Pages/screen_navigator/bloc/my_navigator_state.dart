@@ -25,6 +25,10 @@ class OnboardingPageState extends MyNavigatorState {
 }
 
 class HomePageState extends MyNavigatorState {
+  HomePageState(this.userId);
+
+  final String userId;
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [userId];
 }

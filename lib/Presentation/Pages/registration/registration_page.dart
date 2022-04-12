@@ -43,7 +43,7 @@ class RegistrationPage extends StatelessWidget {
                         const SnackBar(content: Text('Registration success!')));
                     context
                         .read<MyNavigatorBloc>()
-                        .add(const MyOppeningHomePageEvent());
+                        .add(MyOppeningHomePageEvent(state.userId));
                   }
                 },
                 builder: (context, state) {

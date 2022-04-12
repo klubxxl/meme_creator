@@ -98,9 +98,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       final response = await _signInUsecase(_email, _password);
 
-      print(response.userId);
-
-      emit(const LoginSuccessState());
+      emit(LoginSuccessState(response.userId));
     } catch (error) {
       emit(const LoginErrorState('Registration failed!'));
     }

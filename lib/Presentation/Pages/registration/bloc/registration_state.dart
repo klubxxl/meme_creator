@@ -32,10 +32,12 @@ class RegistrationLoadingState extends RegistrationState {
 }
 
 class RegistrationSuccessState extends RegistrationState {
-  const RegistrationSuccessState();
+  const RegistrationSuccessState(this.userId);
+
+  final String userId;
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [userId];
 }
 
 class RegistrationErrorState extends RegistrationState {
