@@ -15,5 +15,8 @@ class MyNavigatorBloc extends Bloc<MyNavigatorEvent, MyNavigatorState> {
     on<MyOnboardingEvent>((event, emit) {
       emit(RegistrationPageState());
     });
+    on<MyOppeningHomePageEvent>((event, emit) {
+      emit(HomePageState());
+    });
   }
 }

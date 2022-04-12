@@ -30,16 +30,20 @@ class RegistrationPage extends StatelessWidget {
                     current is RegistrationSuccessState,
                 listener: (context, state) {
                   if (state is RegistrationErrorState) {
+                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
                     ScaffoldMessenger.of(context)
                         .showSnackBar(SnackBar(content: Text(state.errorText)));
-                  }
-                  if (state is RegistrationLoadingState) {
+                  } else if (state is RegistrationLoadingState) {
+                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Submitting...')));
-                  }
-                  if (state is RegistrationSuccessState) {
+                  } else if (state is RegistrationSuccessState) {
+                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Registration success!')));
+                    context
+                        .read<MyNavigatorBloc>()
+                        .add(const MyOppeningHomePageEvent());
                   }
                 },
                 builder: (context, state) {

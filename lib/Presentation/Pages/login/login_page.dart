@@ -29,16 +29,22 @@ class LoginPage extends StatelessWidget {
                     current is LoginSuccessState,
                 listener: (context, state) {
                   if (state is LoginErrorState) {
+                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
                     ScaffoldMessenger.of(context)
                         .showSnackBar(SnackBar(content: Text(state.errorText)));
                   }
                   if (state is LoginLoadingState) {
+                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Submitting...')));
                   }
                   if (state is LoginSuccessState) {
+                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Loggining succes!')));
+                    context
+                        .read<MyNavigatorBloc>()
+                        .add(const MyOppeningHomePageEvent());
                   }
                 },
                 builder: (context, state) {

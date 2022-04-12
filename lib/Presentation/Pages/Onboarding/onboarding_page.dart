@@ -28,7 +28,7 @@ class OnboardingScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: Dimens.m),
                 Text(
-                  'Easily add text to images and become a meme king at Flutter Academy 😅',
+                  'Easily add text to images and become \na really meme king 😅',
                   style: Topography.body1.copyWith(fontWeight: FontWeight.w400),
                 ),
                 const SizedBox(height: Dimens.l),
