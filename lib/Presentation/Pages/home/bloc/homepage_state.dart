@@ -18,11 +18,15 @@ class ErrorMemes extends HomepageState {
 }
 
 class HomepageFirst extends HomepageState {
+  HomepageFirst(this.memes);
+  Memes memes;
   @override
-  List<Object> get props => [0];
+  List<Object> get props => [0, memes];
 }
 
 class HomepageSeccond extends HomepageState {
+  HomepageSeccond(this.memes);
+  Memes memes;
   @override
-  List<Object> get props => [1];
+  List<Object> get props => [1, memes];
 }

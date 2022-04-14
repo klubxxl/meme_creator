@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:meme_creator/Presentation/Pages/home/bloc/homepage_bloc.dart';
 
 class MyMemesPage extends StatelessWidget {
-  const MyMemesPage({Key? key}) : super(key: key);
+  MyMemesPage(this._state, {Key? key}) : super(key: key);
 
+  HomepageState _state;
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('My memes'),
+    return Center(
+      child: TextButton(
+          onPressed: () async {
+            ;
+          },
+          child: const Text('Upload testmeme')),
     );
   }
 }

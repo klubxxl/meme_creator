@@ -19,8 +19,8 @@ class HomePage extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           body: state is HomepageFirst
-              ? const MyMemesPage()
-              : const CommunityMemesPage(),
+              ? MyMemesPage(state)
+              : CommunityMemesPage(state),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           floatingActionButton: SizedBox(
